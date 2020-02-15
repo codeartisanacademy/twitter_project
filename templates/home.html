@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Artisan Twitter{% endblock %}
+
+{% block content %}
+    <h1>Welcome to Twitter</h1>
+    {% if user.is_authenticated %}
+        <p>Hello {{ user.username }}</p>
+        <p><a href='{% url "logout" %}'>Logout</a></p>
+    {% else %}
+        <p>Please <a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+{% endblock %}
